@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 #include <conio.h>
-
 #define TAM 15
 #define TAMSEC 5
 
@@ -122,7 +121,7 @@ int main()
 
         case 5:
             //printf("\nOrdenar empleados\n\n");
-            ordenarEmpleado(lista,TAM);
+            ordenarEmpleado(lista,TAM,sectores,TAMSEC);
             mostrarEmpleados(lista,TAM,sectores,TAMSEC);
             system("pause");
             break;
@@ -557,17 +556,18 @@ int flag = 0;
 
 }
 
-void ordenarEmpleado(eEmpleado vec[], int tam)
+
+void ordenarEmpleado(eEmpleado vec[], int tam, eSector sector[], int tamSec)
 {
 
     eEmpleado aux;
 
 
-    for(int i=0 ; i < tam - 1 ; i++)
+    for(int i=0 ; i < tam - 1; i++)
     {
         for(int j = i + 1 ; j < tam ; j++)
         {
-            if(vec[i].nombre < vec[j].nombre)
+            if(strcmp(vec[i].nombre,vec[j].nombre)>0)
             {
                 aux=vec[i];
                 vec[i]=vec[j];
@@ -576,8 +576,10 @@ void ordenarEmpleado(eEmpleado vec[], int tam)
         }
     }
 
-    printf("\n\nOrdenado correctamente\n\n");
+
+
+
+    printf("\n\nOrdenado exitosamente\n\n");
     system("pause");
 
 }
-
